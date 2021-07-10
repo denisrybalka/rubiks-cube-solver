@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 
 const App = () => {
   const [color, setColor] = useState("");
-  const [mousePosition, setMousePosition] = useState({x: 0, y: 0});
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const canvasRef = useRef();
 
   useEffect(() => {
@@ -20,7 +20,7 @@ const App = () => {
 
     canvas.width = img.width;
     canvas.height = img.height;
-    
+
     img.onload = function () {
       ctx.drawImage(img, 0, 0, img.width, img.height);
 
@@ -35,17 +35,30 @@ const App = () => {
         const B = pix[i + 2];
         const rgb = `rgb(${R},${G},${B})`;
         setColor(rgb);
-        setMousePosition({x,y});
+        setMousePosition({ x, y });
       };
     };
   };
 
   return (
     <div>
-      
       <canvas ref={canvasRef}></canvas>
 
-      <div style={{ backgroundColor: color, width: 30, height: 30, position: "absolute", left: mousePosition.x+20, top: mousePosition.y+20, border:"2px dotted black", borderRadius:"30px" }}></div>
+      <div
+        style={{
+          backgroundColor: color,
+          width: 30,
+          height: 30,
+          position: "absolute",
+          left: mousePosition.x + 20,
+          top: mousePosition.y + 20,
+          border: "2px dotted black",
+          borderRadius: "30px",
+        }}
+      ></div>
+      <span style={{position: "absolute",
+          left: mousePosition.x + 20,
+          top: mousePosition.y + 55}}>{color}</span>
     </div>
   );
 };
