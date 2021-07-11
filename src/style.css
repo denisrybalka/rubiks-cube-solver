@@ -1,0 +1,17 @@
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    width: 306px;
+    position: absolute;
+    left: 150px;
+    top: 75px;
+}
+
+.g  {
+    width: 100px;
+    height: 100px;
+    border:1px solid white;
+    opacity: 90%;
+    color: white;
+    font-size: 10px;
+}
